@@ -9,7 +9,7 @@ public class gameMaster : MonoBehaviour
     public Transform noteObj;
     public string timerReset="y";
     public float yPos;
-    public float speed = 0.7f;
+    public float speed = 0.5f;
     public Vector3 newPosition;
 
     // Start is called before the first frame update
@@ -52,4 +52,11 @@ public class gameMaster : MonoBehaviour
       timerReset = "y";
       noteObj = Instantiate (noteObj, new Vector3 (7.25f,yPos,-1f), noteObj.rotation );
     }
+
+    void detectPitch(string b){
+      if (b == "yes"){
+        Destroy(noteObj);
+      }
+    }
+
 }
