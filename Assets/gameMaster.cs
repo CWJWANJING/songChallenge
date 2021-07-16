@@ -6,11 +6,12 @@ public class gameMaster : MonoBehaviour
 {
     List<float> whichNote = new List<float>() {1,3,4,2,1,2,4};
     public int noteMark = 0;
-    public Transform noteObj;
+    public Transform note;
     public string timerReset="y";
-    public float yPos;
+    public float xPos;
     public float speed = 0.5f;
     public Vector3 newPosition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,39 +25,38 @@ public class gameMaster : MonoBehaviour
       if (timerReset == "y"){
         StartCoroutine (generateNotes());
         timerReset = "n";
+        Debug.Log("created note");
+
       }
-      newPosition = new Vector3(-20f,yPos,-1f);
-      float step =  speed * Time.deltaTime;
-      noteObj.position = Vector3.Lerp(noteObj.position, newPosition, step);
-      Debug.Log("move");
 
     }
 
     IEnumerator generateNotes(){
-      yield return new WaitForSeconds(1);
+      yield return new WaitForSeconds(0.6f);
 
       if (whichNote[noteMark] == 1){
-        yPos = 3.5f;
+        xPos = 3.375f;
       }
       if (whichNote[noteMark] == 2){
-        yPos = 1.2f;
+        xPos = 1.098f;
       }
       if (whichNote[noteMark] == 3){
-        yPos = -1.1f;
+        xPos = -1.187f;
       }
       if (whichNote[noteMark] == 4){
-        yPos = -3.4f;
+        xPos = -3.458f;
       }
 
       noteMark += 1;
       timerReset = "y";
-      noteObj = Instantiate (noteObj, new Vector3 (7.25f,yPos,-1f), noteObj.rotation );
+      note = Instantiate (note, new Vector3 (xPos,5.51f,-4.31f), note.rotation * Quaternion.Euler (0f, -80f, -90f) );
+
     }
 
-    void detectPitch(string b){
-      if (b == "yes"){
-        Destroy(noteObj);
-      }
-    }
+    // void detectPitch(string b){
+    //   if (b == "yes"){
+    //     Destroy(note);
+    //   }
+    // }
 
 }
