@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class string1 : MonoBehaviour
 {
+  public KeyCode activate;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,10 @@ public class string1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if (Input.GetKeyDown(activate)){
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
+        StartCoroutine(retractCollider());
+      }
 
     }
 
@@ -24,7 +29,7 @@ public class string1 : MonoBehaviour
 
     IEnumerator retractCollider(){
       yield return new WaitForSeconds(0.5f);
-      GetComponent<Rigidbody>().velocity = new Vector3(-1,0,0);
+      GetComponent<Rigidbody>().velocity = new Vector3(0,0,2.2f);
       yield return new WaitForSeconds(0.5f);
       GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
     }

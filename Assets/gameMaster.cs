@@ -25,7 +25,6 @@ public class gameMaster : MonoBehaviour
       if (timerReset == "y"){
         StartCoroutine (generateNotes());
         timerReset = "n";
-        Debug.Log("created note");
 
       }
 

@@ -22,5 +22,9 @@ public class notecontrol : MonoBehaviour
         Debug.Log("destoyed");
         Destroy(gameObject);
       }
+      if (other.gameObject.name == "success1"){
+        Debug.Log("success");
+        Destroy(gameObject);
+      }
     }
 }
