@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class string1 : MonoBehaviour
+public class string2 : MonoBehaviour
 {
   public KeyCode activate;
 
@@ -25,7 +25,7 @@ public class string1 : MonoBehaviour
     void correctPitch(){
       GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
       StartCoroutine(retractCollider());
-      Debug.Log("string 1");
+      Debug.Log("string 2");
     }
 
     IEnumerator retractCollider(){

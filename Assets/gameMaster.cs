@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class gameMaster : MonoBehaviour
 {
-    List<float> whichNote = new List<float>() {1,3,4,2,1,2,4};
+    List<float> whichNote = new List<float>() {2,2,1,1,1,1,1,1,1,2,2,2,2,2};
     public int noteMark = 0;
     public Transform note;
     public string timerReset="y";
     public float xPos;
-    public float speed = 0.5f;
     public Vector3 newPosition;
 
 
@@ -31,7 +30,7 @@ public class gameMaster : MonoBehaviour
     }
 
     IEnumerator generateNotes(){
-      yield return new WaitForSeconds(0.6f);
+      yield return new WaitForSeconds(1.5f);
 
       if (whichNote[noteMark] == 1){
         xPos = 3.375f;
@@ -48,14 +47,8 @@ public class gameMaster : MonoBehaviour
 
       noteMark += 1;
       timerReset = "y";
-      note = Instantiate (note, new Vector3 (xPos,5.51f,-4.31f), note.rotation * Quaternion.Euler (0f, -80f, -90f) );
+      note = Instantiate (note, new Vector3 (xPos,5.51f,-6.54f), note.rotation * Quaternion.Euler (0f, -80f, -90f) );
 
     }
-
-    // void detectPitch(string b){
-    //   if (b == "yes"){
-    //     Destroy(note);
-    //   }
-    // }
 
 }
