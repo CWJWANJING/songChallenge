@@ -40,6 +40,9 @@ public class notecontrol : MonoBehaviour
       if (other.gameObject.name == "failcollider"){
         Debug.Log("destoyed");
         Destroy(gameObject);
+        if (gameMaster.score > 0){
+          gameMaster.score -= 1;
+        }
         // wrong.SetActive(true);
         // // https://forum.unity.com/threads/make-text-appear-then-disappear.716453/
         // timeWhenDisappear = Time.time + timeToAppear;
@@ -51,6 +54,7 @@ public class notecontrol : MonoBehaviour
       if (other.gameObject.name == "success1"){
         Debug.Log("success1");
         Destroy(gameObject);
+        gameMaster.score += 10;
         // correct.SetActive(true);
         // correct.SetActive(false);
         Instantiate (correctBurst, transform.position, correctBurst.rotation);
@@ -58,6 +62,7 @@ public class notecontrol : MonoBehaviour
       if (other.gameObject.name == "success2"){
         Debug.Log("success2");
         Destroy(gameObject);
+        gameMaster.score += 10;
         // correct.SetActive(true);
         // correct.SetActive(false);
         Instantiate (correctBurst, transform.position, correctBurst.rotation);
@@ -65,6 +70,7 @@ public class notecontrol : MonoBehaviour
       if (other.gameObject.name == "success3"){
         Debug.Log("success3");
         Destroy(gameObject);
+        gameMaster.score += 10;
         // correct.SetActive(true);
         // correct.SetActive(false);
         Instantiate (correctBurst, transform.position, correctBurst.rotation);
@@ -72,6 +78,7 @@ public class notecontrol : MonoBehaviour
       if (other.gameObject.name == "success4"){
         Debug.Log("success4");
         Destroy(gameObject);
+        gameMaster.score += 10;
         // correct.SetActive(true);
         // correct.SetActive(false);
         Instantiate (correctBurst, transform.position, correctBurst.rotation);

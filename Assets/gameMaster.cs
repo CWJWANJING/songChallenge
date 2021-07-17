@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class gameMaster : MonoBehaviour
 {
+    // the notes of a song
     List<float> whichNote = new List<float>() {2,2,1,1,1,1,1,1,1,2,2,2,2,2};
     public int noteMark = 0;
     public Transform note;
@@ -11,17 +12,21 @@ public class gameMaster : MonoBehaviour
     public float xPos;
     public Vector3 newPosition;
 
+    public static float score = 0;
+    public static float totalScore;
+
 
     // Start is called before the first frame update
     void Start()
     {
+      totalScore = 10*whichNote.Count;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-      if (timerReset == "y"){
+      if (timerReset == "y" && noteMark < whichNote.Count){
         StartCoroutine (generateNotes());
         timerReset = "n";
 

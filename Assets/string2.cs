@@ -5,6 +5,7 @@ using UnityEngine;
 public class string2 : MonoBehaviour
 {
   public KeyCode activate;
+  public string lockInput = "n";
 
     // Start is called before the first frame update
     void Start()
@@ -15,23 +16,28 @@ public class string2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(activate)){
+      if (Input.GetKeyDown(activate) && lockInput == "n"){
+        lockInput = "y";
         GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
         StartCoroutine(retractCollider());
       }
 
     }
 
-    void correctPitch(){
-      GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
-      StartCoroutine(retractCollider());
-      Debug.Log("string 2");
-    }
+    // void correctPitch(){
+    //   if (lockInput == "n"){
+    //     lockInput == "y";
+    //     GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
+    //     StartCoroutine(retractCollider());
+    //     Debug.Log("string 2");
+    //   }
+    // }
 
     IEnumerator retractCollider(){
-      yield return new WaitForSeconds(0.2f);
+      yield return new WaitForSeconds(0.5f);
       GetComponent<Rigidbody>().velocity = new Vector3(0,0,2.2f);
-      yield return new WaitForSeconds(0.2f);
+      yield return new WaitForSeconds(0.5f);
       GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+      lockInput = "n";
     }
 }
