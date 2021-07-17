@@ -17,26 +17,20 @@ public class string1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(activate) && lockInput == "n"){
-        lockInput = "y";
-        GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
-        StartCoroutine(retractCollider());
-      }
+      // if (Input.GetKeyDown(activate) && lockInput == "n"){
+      //   lockInput = "y";
+      //   GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
+      //   StartCoroutine(retractCollider());
+      // }
+     }
 
-      // if (lockInput == "n && correctp == true){
-      //    lockInput == "y";
-      //    GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
-      //    StartCoroutine(retractCollider());
-      //    Debug.Log("string 1");
-      //}
-
-    }
-
-    void correctPitch(bool b){
-      correctp = b;
-        // GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
-        // StartCoroutine(retractCollider());
-        // Debug.Log("string 1");
+    void correctPitch(){
+      if (lockInput == "n"){
+         lockInput = "y";
+         GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
+         StartCoroutine(retractCollider());
+         Debug.Log("string 1");
+       }
     }
 
     IEnumerator retractCollider(){

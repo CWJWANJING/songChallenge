@@ -10,6 +10,10 @@ public class notecontrol : MonoBehaviour
   public Transform correctBurst;
   public Transform wrongBurst;
 
+  private AndroidJavaObject jo;
+
+  public float scorePercentage = 0;
+
   // public float timeToAppear = 1f;
   // public float timeWhenDisappear;
 
@@ -18,6 +22,10 @@ public class notecontrol : MonoBehaviour
     {
       // correct.SetActive(false);
       // wrong.SetActive(false);
+
+      //Connect with Android Studio
+      AndroidJavaClass jc = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
+      jo = jc.GetStatic<AndroidJavaObject> ("currentActivity");
     }
 
     // Update is called once per frame
@@ -33,6 +41,8 @@ public class notecontrol : MonoBehaviour
       //     Destroy(gameObject);
       //   }
       // }
+      scorePercentage = 100*(gameMaster.score / gameMaster.totalScore);
+      jo.Call("receiveScore",scorePercentage);
 
     }
 
