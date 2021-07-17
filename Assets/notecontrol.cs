@@ -12,7 +12,7 @@ public class notecontrol : MonoBehaviour
 
   private AndroidJavaObject jo;
 
-  public float scorePercentage = 0;
+  public float scorePercentage;
 
   // public float timeToAppear = 1f;
   // public float timeWhenDisappear;
@@ -42,6 +42,7 @@ public class notecontrol : MonoBehaviour
       //   }
       // }
       scorePercentage = 100*(gameMaster.score / gameMaster.totalScore);
+      Debug.Log("scorePercentage" + scorePercentage);
       jo.Call("receiveScore",scorePercentage);
 
     }

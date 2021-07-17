@@ -17,11 +17,11 @@ public class string1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      // if (Input.GetKeyDown(activate) && lockInput == "n"){
-      //   lockInput = "y";
-      //   GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
-      //   StartCoroutine(retractCollider());
-      // }
+      if (Input.GetKeyDown(activate) && lockInput == "n"){
+        lockInput = "y";
+        GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
+        StartCoroutine(retractCollider());
+      }
      }
 
     void correctPitch(){
