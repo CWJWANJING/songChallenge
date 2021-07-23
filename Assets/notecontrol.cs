@@ -42,7 +42,6 @@ public class notecontrol : MonoBehaviour
       //   }
       // }
       scorePercentage = 100*(gameMaster.score / gameMaster.totalScore);
-      Debug.Log("scorePercentage" + scorePercentage);
       jo.Call("receiveScore",scorePercentage);
 
     }

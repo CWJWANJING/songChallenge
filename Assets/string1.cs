@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class string1 : MonoBehaviour
 {
+  List<string> whichNote = new List<string>() {"B4","B4","C5","C5","B4","A4","A4"};
   public KeyCode activate;
   public string lockInput = "n";
   public bool correctp = false;
@@ -30,7 +31,8 @@ public class string1 : MonoBehaviour
          GetComponent<Rigidbody>().velocity = new Vector3(0,0,-2.2f);
          StartCoroutine(retractCollider());
          Debug.Log("string 1");
-       }
+         }
+
     }
 
     IEnumerator retractCollider(){
